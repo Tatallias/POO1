@@ -16,12 +16,15 @@ public class JCalculator extends JFrame
   // Contraintes pour le placement des composants graphiques
   private final GridBagConstraints constraints = new GridBagConstraints();
 
+  private State status;
 
   /*
    * Mise a jour de l'interface apres une operation (jList et jStack)
    */
   private void update()
   {
+      jNumber.setText(status.getText());
+      jStack.setListData(status.getStackAsTab());
     // Modifier une zone de texte, JTextField.setText(string nom)
     // Modifier un composant liste, JList.setListData(Object[] tableau)
   }

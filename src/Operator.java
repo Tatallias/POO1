@@ -1,6 +1,4 @@
 
-public class Operator {
-    public void execute() {
-        
-    }
+public interface Operator {
+    public void execute();
 }

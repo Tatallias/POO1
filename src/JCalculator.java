@@ -16,15 +16,15 @@ public class JCalculator extends JFrame
   // Contraintes pour le placement des composants graphiques
   private final GridBagConstraints constraints = new GridBagConstraints();
 
-  private State status;
+  private State state;
 
   /*
    * Mise a jour de l'interface apres une operation (jList et jStack)
    */
   private void update()
   {
-      jNumber.setText(status.getText());
-      jStack.setListData(status.getStackAsTab());
+      jNumber.setText(state.getText());
+      jStack.setListData(state.getStackAsTab());
     // Modifier une zone de texte, JTextField.setText(string nom)
     // Modifier un composant liste, JList.setListData(Object[] tableau)
   }
@@ -44,7 +44,9 @@ public class JCalculator extends JFrame
 
     b.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
+	    System.out.println("Le status est ainsi :\n - texte = " + state.getText() + "\n");
 	  operator.execute();
+      System.out.println("Le status est ainsi :\n - texte = " + state.getText() + "\n");
 	  update();
 	}});
   }
@@ -72,6 +74,9 @@ public class JCalculator extends JFrame
     getContentPane().add(jNumber, constraints);
     constraints.gridwidth = 1; // reset width
 
+    // Initialisation du status à vide
+    state = new State();
+    
     // Rappel de la valeur en memoire
     addOperatorButton("MR", 0, 1, Color.RED, null);
 
@@ -90,7 +95,7 @@ public class JCalculator extends JFrame
     // Boutons 1-9
     for (int i = 1; i < 10; i++) 
       addOperatorButton(String.valueOf(i), (i - 1) % 3, 4 - (i - 1) / 3, 
-			Color.BLUE, null);
+			Color.BLUE, new OperatorNumber(i, state));
     // Bouton 0
     addOperatorButton("0", 0, 5, Color.BLUE, null);
 

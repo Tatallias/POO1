@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -97,7 +98,7 @@ public class JCalculator extends JFrame
       addOperatorButton(String.valueOf(i), (i - 1) % 3, 4 - (i - 1) / 3, 
 			Color.BLUE, new OperatorNumber(i, state));
     // Bouton 0
-    addOperatorButton("0", 0, 5, Color.BLUE, null);
+    addOperatorButton("0", 0, 5, Color.BLUE, new OperatorNumber(0, state));
 
     // Changement de signe de la valeur courante
     addOperatorButton("+/-", 1, 5, Color.BLUE, null);
@@ -106,18 +107,18 @@ public class JCalculator extends JFrame
     addOperatorButton(".", 2, 5, Color.BLUE, null);
 
     // Operateurs arithmetiques a deux operandes: /, *, -, +
-    addOperatorButton("/", 3, 2, Color.RED, null);
-    addOperatorButton("*", 3, 3, Color.RED, null);
-    addOperatorButton("-", 3, 4, Color.RED, null);
-    addOperatorButton("+", 3, 5, Color.RED, null);
+    addOperatorButton("/", 3, 2, Color.RED, new OperatorTwoOp(OperatorTwoOp.Operators.DIVISION, state));
+    addOperatorButton("*", 3, 3, Color.RED, new OperatorTwoOp(OperatorTwoOp.Operators.MULTIPLICATION, state));
+    addOperatorButton("-", 3, 4, Color.RED, new OperatorTwoOp(OperatorTwoOp.Operators.SUBTRACTION, state));
+    addOperatorButton("+", 3, 5, Color.RED, new OperatorTwoOp(OperatorTwoOp.Operators.ADDITION, state));
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
-    addOperatorButton("1/x", 4, 2, Color.RED, null);
-    addOperatorButton("x^2", 4, 3, Color.RED, null);
-    addOperatorButton("Sqrt", 4, 4, Color.RED, null);
+    addOperatorButton("1/x", 4, 2, Color.RED, new OperatorOneOp(OperatorOneOp.Operators.UN_SUR, state));
+    addOperatorButton("x^2", 4, 3, Color.RED, new OperatorOneOp(OperatorOneOp.Operators.CARRE, state));
+    addOperatorButton("Sqrt", 4, 4, Color.RED, new OperatorOneOp(OperatorOneOp.Operators.SQRT, state));
 
     // Entree: met la valeur courante sur le sommet de la pile
-    addOperatorButton("Ent", 4, 5, Color.RED, null);
+    addOperatorButton("Ent", 4, 5, Color.RED, new OperatorEnt(state));
 
     // Affichage de la pile
     JLabel jLabel = new JLabel("Stack");

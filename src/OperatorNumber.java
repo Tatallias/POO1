@@ -1,4 +1,3 @@
-
 public class OperatorNumber implements Operator{
     private int n;
     private State state;
@@ -10,6 +9,10 @@ public class OperatorNumber implements Operator{
 
     @Override
     public void execute() {
-        state.addText(Integer.toString(n));
+        if(state.getText().equals("0")) {
+            state.setText(Integer.toString(n));
+        } else {
+            state.setText(state.getText() + Integer.toString(n));
+        }        
     }
 }

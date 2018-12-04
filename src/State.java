@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class State {
-    private Stack stack;
+    private Stack<Double> stack;
     private String text;
     
     public State() {
-        stack = new Stack();
+        stack = new Stack<Double>();
         text = new String("0");
     }
     
@@ -13,11 +13,15 @@ public class State {
         return text;
     }
     
+    public Stack<Double> getStack() {
+        return stack;
+    }
+    
     public Object[] getStackAsTab() {
         return stack.toArray();
     }
     
-    public void addText(String s) {
-         text += s;
+    public void setText(String s) {
+         text = s;
     }
 }

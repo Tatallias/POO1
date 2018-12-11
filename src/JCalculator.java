@@ -45,7 +45,7 @@ public class JCalculator extends JFrame
 
     b.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
-	    System.out.println("Le status est ainsi :\n - texte = " + state.getText() + "\n");
+	  System.out.println("Le status est ainsi :\n - texte = " + state.getText() + "\n");
 	  operator.execute();
       System.out.println("Le status est ainsi :\n - texte = " + state.getText() + "\n");
 	  update();

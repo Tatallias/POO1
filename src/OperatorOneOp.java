@@ -14,17 +14,17 @@ public class OperatorOneOp implements Operator {
 
     public enum Operators
     {
-        UN_SUR() {
+        UN_SUR {
             @Override public double apply(double x) {
                 return 1 / x;
             }
         },
-        CARRE() {
+        CARRE {
             @Override public double apply(double x) {
                 return x * x;
             }
         },
-        SQRT() {
+        SQRT {
             @Override public double apply(double x) {
                 return Math.sqrt(x);
             }

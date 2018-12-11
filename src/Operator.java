@@ -1,4 +1,9 @@
-public interface Operator {
+public abstract class Operator {
+    protected State state;
+
+    Operator(State state) {
+        this.state = state;
+    }
     
-    public void execute();
+    public abstract void execute();
 }

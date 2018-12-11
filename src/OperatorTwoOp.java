@@ -1,8 +1,7 @@
-public abstract class OperatorTwoOp implements Operator {
-    protected State state;
-    
+public abstract class OperatorTwoOp extends Operator {
+
     OperatorTwoOp(State state) {
-        this.state = state;
+        super(state);
     }
 	public void execute(){
 		state.getStack().push(apply(state.getStack().pop(),state.getStack().pop()));

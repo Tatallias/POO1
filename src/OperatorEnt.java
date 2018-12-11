@@ -1,8 +1,8 @@
-public class OperatorEnt implements Operator {
+public class OperatorEnt extends Operator {
     private State state;
     
     public OperatorEnt(State state) {
-        this.state = state;
+        super(state);
     }
     
     @Override

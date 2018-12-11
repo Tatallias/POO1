@@ -1,4 +1,4 @@
-public class OperatorNumber implements Operator{
+public class OperatorNumber extends Operator{
     private int n;
     private State state;
     

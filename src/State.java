@@ -5,6 +5,7 @@ public class State {
     private String text;
     private boolean hasSaved;
     private double savedValue;
+	private boolean error;
     
     public State() {
         stack = new Stack<Double>();
@@ -40,4 +41,18 @@ public class State {
         savedValue = x;
         hasSaved = true;
     }
+	
+	public void setError(String s) {
+		error = true;
+		text = s;
+	}
+	
+	public boolean isError() {
+		return error;
+	}
+	
+	public void clearError() {
+		error = false;
+		text = "0";
+	}
 }

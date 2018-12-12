@@ -86,10 +86,10 @@ public class JCalculator extends JFrame
     addOperatorButton("<=", 2, 1, Color.RED, new OperatorBackSpace(state));
 
     // Mise a zero de la valeur courante + suppression des erreurs
-    addOperatorButton("CE", 3, 1, Color.RED, null);
+    addOperatorButton("CE", 3, 1, Color.RED, new OperatorClearError(state));
 
     // Comme CE + vide la pile
-    addOperatorButton("C",  4, 1, Color.RED, null);
+    addOperatorButton("C",  4, 1, Color.RED, new OperatorClear(state));
 
     // Boutons 1-9
     for (int i = 1; i < 10; i++) 

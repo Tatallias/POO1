@@ -7,8 +7,10 @@ public class OperatorMemoryRestore extends Operator {
 
     @Override
     public void execute() {
-        if(state.hasSaved()) {
-            state.setText(Double.toString(state.savedValue()));  
-        }
+		if(!state.isError()){
+			if(state.hasSaved()) {
+				state.setText(Double.toString(state.savedValue()));  
+			}
+		}
     }
 }

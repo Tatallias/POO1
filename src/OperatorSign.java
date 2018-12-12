@@ -7,11 +7,13 @@ public class OperatorSign extends Operator {
 
     @Override
     public void execute() {
-        if(state.getText().startsWith("-")) { //negatif
-            state.setText(state.getText().replace("-", ""));
-        } else { //positif
-            state.setText('-' + state.getText());
-        }
+		if(!state.isError()){
+			if(state.getText().startsWith("-")) { //negatif
+				state.setText(state.getText().replace("-", ""));
+			} else { //positif
+				state.setText('-' + state.getText());
+			}
+		}
     }
 
 }

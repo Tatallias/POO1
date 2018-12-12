@@ -6,6 +6,10 @@ public class RacineCarre extends OperatorOneOp {
     }
     
     public double apply(double x) {
+		if( x < 0 ){
+			state.setError("sqrt of negativ value");
+			return x;
+		}
         return Math.sqrt(x);
     }
 }

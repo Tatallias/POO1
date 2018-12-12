@@ -8,7 +8,9 @@ public class OperatorMemoryStore extends Operator {
 
     @Override
     public void execute() {
-        state.setSavedValue(Double.parseDouble(state.getText()));
+		if(!state.isError()){
+			state.setSavedValue(Double.parseDouble(state.getText()));
+		}
     }
 
 }

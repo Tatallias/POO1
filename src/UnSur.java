@@ -6,6 +6,11 @@ public class UnSur extends OperatorOneOp {
     }
     
     public double apply(double x) {
-        return 1 / x;
+		if( x == 0 ){
+			state.setError("Divide by 0");
+			return x;
+		} else {
+			return 1 / x;
+		}
     }
 }

@@ -8,10 +8,12 @@ public class OperatorNumber extends Operator{
 
     @Override
     public void execute() {
-        if(state.getText().equals("0")) {
-            state.setText(Integer.toString(n));
-        } else {
-            state.setText(state.getText() + Integer.toString(n));
-        }        
+		if(!state.isError()){
+			if(state.getText().equals("0")) {
+				state.setText(Integer.toString(n));
+			} else {
+				state.setText(state.getText() + Integer.toString(n));
+			} 
+		}		
     }
 }

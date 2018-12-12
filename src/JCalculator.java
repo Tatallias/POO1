@@ -45,9 +45,7 @@ public class JCalculator extends JFrame
 
     b.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
-	  System.out.println("Le status est ainsi :\n - texte = " + state.getText() + "\n");
 	  operator.execute();
-      System.out.println("Le status est ainsi :\n - texte = " + state.getText() + "\n");
 	  update();
 	}});
   }
@@ -77,15 +75,15 @@ public class JCalculator extends JFrame
 
     // Initialisation du status à vide
     state = new State();
-    
+
     // Rappel de la valeur en memoire
-    addOperatorButton("MR", 0, 1, Color.RED, null);
+    addOperatorButton("MR", 0, 1, Color.RED, new OperatorMemoryRestore(state));
 
     // Stockage d'une valeur en memoire
-    addOperatorButton("MS", 1, 1, Color.RED, null);
+    addOperatorButton("MS", 1, 1, Color.RED, new OperatorMemoryStore(state));
 
     // Backspace
-    addOperatorButton("<=", 2, 1, Color.RED, null);
+    addOperatorButton("<=", 2, 1, Color.RED, new OperatorBackSpace(state));
 
     // Mise a zero de la valeur courante + suppression des erreurs
     addOperatorButton("CE", 3, 1, Color.RED, null);
@@ -101,10 +99,10 @@ public class JCalculator extends JFrame
     addOperatorButton("0", 0, 5, Color.BLUE, new OperatorNumber(0, state));
 
     // Changement de signe de la valeur courante
-    addOperatorButton("+/-", 1, 5, Color.BLUE, null);
+    addOperatorButton("+/-", 1, 5, Color.BLUE, new OperatorSign(state));
 
     // Operateur point (chiffres apres la virgule ensuite)
-    addOperatorButton(".", 2, 5, Color.BLUE, null);
+    addOperatorButton(".", 2, 5, Color.BLUE, new OperatorDot(state));
 
     // Operateurs arithmetiques a deux operandes: /, *, -, +
     addOperatorButton("/", 3, 2, Color.RED, new Division(state));

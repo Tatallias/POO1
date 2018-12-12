@@ -4,7 +4,11 @@ public abstract class OperatorTwoOp extends Operator {
         super(state);
     }
 	public void execute(){
-		state.getStack().push(apply(state.getStack().pop(),state.getStack().pop()));
+	    try {
+	        state.getStack().push(apply(state.getStack().pop(),state.getStack().pop()));
+	    } catch (Exception e) {
+	        state.setText("Error : missing operand");
+	    }
 	}
 	
 	abstract double apply(double x, double y);

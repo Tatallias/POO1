@@ -1,10 +1,9 @@
 public class OperatorNumber extends Operator{
     private int n;
-    private State state;
     
     public OperatorNumber(int n, State state) {
+        super(state);
         this.n = n;
-        this.state = state;
     }
 
     @Override

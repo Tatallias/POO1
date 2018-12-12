@@ -1,5 +1,4 @@
 public class OperatorEnt extends Operator {
-    private State state;
     
     public OperatorEnt(State state) {
         super(state);
@@ -8,7 +7,6 @@ public class OperatorEnt extends Operator {
     @Override
     public void execute() {
         state.getStack().push(Double.parseDouble(state.getText()));
-        state.setText("");
+        state.setText("0");
     }
-
 }

@@ -9,9 +9,9 @@ public class OperatorBackSpace extends Operator {
 		if(!state.isError()){
 			if(!state.getText().isEmpty()) {
 				if(state.getText().length() == 1) {
-					state.setText("0");
+					state.setText("0", false);
 				} else {
-					state.setText(state.getText().substring(0, state.getText().length() - 1));
+					state.setText(state.getText().substring(0, state.getText().length() - 1), false);
 				}
 			}
 		}

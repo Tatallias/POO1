@@ -6,10 +6,12 @@ public class Calculator {
     private State state;
     private Map<String, Operator> op;
     private Scanner scanner;
+    boolean firstInput;
     
     public Calculator() {
         state = new State();
         scanner = new Scanner(System.in);
+        firstInput = true;
         
         op = new HashMap<String, Operator>();
         op.put("-", new Substraction(state));
@@ -18,7 +20,8 @@ public class Calculator {
         op.put("/", new Division(state));
         op.put("sqrt", new RacineCarre(state));
         op.put("1/", new UnSur(state));
-        op.put("^2", new Carre(state));     
+        op.put("^2", new Carre(state));
+        op.put("exit", new OperatorExit(state));
     }
     
     public void step() {
@@ -27,23 +30,43 @@ public class Calculator {
         if(op.containsKey(input)) {
             op.get(input).execute();
         } else {
-            state.getStack().push(Double.parseDouble(input));
+            if(!firstInput) {
+                state.getStack().push(Double.parseDouble(state.getText()));
+            } else {
+                firstInput = false;
+            }
+            state.setText(((Double) Double.parseDouble(input)).toString(), false);          
         }
         
         display();
     }
     
+    public void display() {
+        System.out.print(state.getText() + " ");
+        for(Object x : state.getStackAsTab())
+            System.out.print(x + " ");
+        System.out.println();
+    }
+    
+    private class OperatorExit extends Operator {
+
+        OperatorExit(State state) {
+            super(state);
+        }
+
+        @Override
+        public void execute() {
+            System.exit(0);
+        }     
+    }
+    
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         
+        System.out.println("Welcome to our reverse polish notation Calculator");
+
         while(true) {
             calculator.step();
         }
-    }
-
-    public void display() {
-        for(double x : state.getStack())
-            System.out.print(x + " ");
-        System.out.println();
     }
 }

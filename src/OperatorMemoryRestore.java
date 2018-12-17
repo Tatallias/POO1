@@ -8,7 +8,7 @@ public class OperatorMemoryRestore extends Operator {
     public void execute() {
 		if(!state.isError()){
 			if(state.hasSaved()) {
-				state.setText(Double.toString(state.savedValue()));  
+				state.setText(Double.toString(state.savedValue()), false);  
 			}
 		}
     }

@@ -11,9 +11,9 @@ public class OperatorEnt extends Operator {
 		    try{
 		        d = Double.parseDouble(state.getText());
 	            state.getStack().push(d);
-	            state.setText("0");
+	            state.setText("0", false);
 		    } catch (Exception e){
-		        state.setText("Syntax error");
+		        state.setText("Syntax error", false);
 		    }
 		}
     }

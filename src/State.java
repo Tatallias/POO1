@@ -6,6 +6,7 @@ public class State {
     private boolean hasSaved;
     private double savedValue;
 	private boolean error;
+	private boolean wasOperation;
     
     public State() {
         stack = new Stack<Double>();
@@ -22,11 +23,14 @@ public class State {
     }
     
     public Object[] getStackAsTab() {
-        return stack.toArray();
+        Object[] array = stack.toArray();
+        Collections.reverse(Arrays.asList(array));
+        return array;
     }
     
-    public void setText(String s) {
+    public void setText(String s, boolean wasOperation) {
          text = s;
+         this.wasOperation = wasOperation;
     }
     
     public boolean hasSaved() {
@@ -54,5 +58,9 @@ public class State {
 	public void clearError() {
 		error = false;
 		text = "0";
+	}
+	
+	public boolean wasOperation() {
+	     return wasOperation;
 	}
 }

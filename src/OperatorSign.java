@@ -8,9 +8,9 @@ public class OperatorSign extends Operator {
     public void execute() {
 		if(!state.isError()){
 			if(state.getText().startsWith("-")) { //negatif
-				state.setText(state.getText().replace("-", ""));
+				state.setText(state.getText().replace("-", ""), false);
 			} else { //positif
-				state.setText('-' + state.getText());
+				state.setText('-' + state.getText(), false);
 			}
 		}
     }

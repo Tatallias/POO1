@@ -5,7 +5,7 @@ public class OperatorClearError extends Operator {
 	}
 	public void execute() {
 		state.clearError();
-		state.setText("0");
+		state.setText("0", false);
 	}
 	
 }

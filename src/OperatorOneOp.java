@@ -9,7 +9,11 @@ public abstract class OperatorOneOp extends Operator {
 		if(!state.isError()){
 		    Double d = checkEntry();
             if(!d.isNaN()) {
-                state.setText(((Double) apply(d)).toString());
+                d = apply(d);
+
+                if(!state.isError()){
+                    state.setText(d.toString(), true);
+                }
             }
 		}
     }

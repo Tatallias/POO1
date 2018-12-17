@@ -10,7 +10,11 @@ public abstract class OperatorTwoOp extends Operator {
 			}else{	
 			    Double d = checkEntry();
 			    if(!d.isNaN()) {
-	                state.setText(((Double) apply(d, state.getStack().pop())).toString());
+			        d = apply(state.getStack().pop(), d);
+
+			        if(!state.isError()){
+			            state.setText(d.toString(), true);
+			        }
 			    }
 			}
 		}

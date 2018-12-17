@@ -7,8 +7,14 @@ public class OperatorEnt extends Operator {
     @Override
     public void execute() {
 		if(!state.isError()){
-			state.getStack().push(Double.parseDouble(state.getText()));
-			state.setText("0");
+		    double d;
+		    try{
+		        d = Double.parseDouble(state.getText());
+	            state.getStack().push(d);
+	            state.setText("0");
+		    } catch (Exception e){
+		        state.setText("Syntax error");
+		    }
 		}
     }
 }

@@ -7,11 +7,10 @@ public abstract class OperatorOneOp extends Operator {
     @Override
     public void execute() {
 		if(!state.isError()){
-			if(state.getStack().empty()){
-				state.setError("Too few arguments");
-			} else {
-				state.getStack().push(apply(state.getStack().pop()));
-			}
+		    Double d = checkEntry();
+            if(!d.isNaN()) {
+                state.setText(((Double) apply(d)).toString());
+            }
 		}
     }
     

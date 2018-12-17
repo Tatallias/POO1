@@ -1,4 +1,3 @@
-
 public class OperatorSign extends Operator {
 
     OperatorSign(State state) {

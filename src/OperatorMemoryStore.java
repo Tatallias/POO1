@@ -1,4 +1,3 @@
-
 public class OperatorMemoryStore extends Operator {
 
     public OperatorMemoryStore(State state) {

@@ -1,4 +1,3 @@
-
 public class OperatorDot extends Operator {
 
     OperatorDot(State state) {

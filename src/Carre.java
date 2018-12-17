@@ -1,4 +1,3 @@
-
 public class Carre extends OperatorOneOp{
     public Carre(State state) {
         super(state);

@@ -1,4 +1,3 @@
-
 public class OperatorBackSpace extends Operator {
 
     public OperatorBackSpace(State state) {

@@ -5,10 +5,13 @@ public abstract class OperatorTwoOp extends Operator {
     }
 	public void execute(){
 		if(!state.isError()){
-			if ( 2 > state.getStack().size()){
+			if (state.getStack().size() < 1){
 				state.setError("Too few arguments");
 			}else{	
-				state.getStack().push(apply(state.getStack().pop(),state.getStack().pop()));
+			    Double d = checkEntry();
+			    if(!d.isNaN()) {
+	                state.setText(((Double) apply(d, state.getStack().pop())).toString());
+			    }
 			}
 		}
 	}

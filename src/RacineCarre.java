@@ -1,4 +1,3 @@
-
 public class RacineCarre extends OperatorOneOp {
     public RacineCarre(State state) {
         super(state);

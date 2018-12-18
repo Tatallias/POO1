@@ -18,9 +18,9 @@ public class Calculator {
         op.put("+", new Addition(state));
         op.put("*", new Multiplication(state));
         op.put("/", new Division(state));
-        op.put("sqrt", new RacineCarre(state));
-        op.put("1/", new UnSur(state));
-        op.put("^2", new Carre(state));
+        op.put("sqrt", new SquareRoot(state));
+        op.put("1/", new OneOver(state));
+        op.put("^2", new Square(state));
         op.put("exit", new OperatorExit(state));
     }
     

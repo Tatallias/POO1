@@ -18,5 +18,11 @@ public abstract class OperatorOneOp extends Operator {
 		}
     }
     
+    /**
+     * Defines a function to be applied on the entry field of the state
+     * 
+     * @param x     the operand of the function
+     * @return      the result of the function applied on the operand
+     */
     abstract double apply(double x);
 }

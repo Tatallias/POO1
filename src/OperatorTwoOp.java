@@ -3,6 +3,8 @@ public abstract class OperatorTwoOp extends Operator {
     OperatorTwoOp(State state) {
         super(state);
     }
+    
+    @Override
 	public void execute(){
 		if(!state.isError()){
 			if (state.getStack().size() < 1){

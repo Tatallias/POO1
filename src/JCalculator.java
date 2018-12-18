@@ -111,9 +111,9 @@ public class JCalculator extends JFrame
     addOperatorButton("+", 3, 5, Color.RED, new Addition(state));
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
-    addOperatorButton("1/x", 4, 2, Color.RED, new UnSur(state));
-    addOperatorButton("x^2", 4, 3, Color.RED, new Carre(state));
-    addOperatorButton("Sqrt", 4, 4, Color.RED, new RacineCarre(state));
+    addOperatorButton("1/x", 4, 2, Color.RED, new OneOver(state));
+    addOperatorButton("x^2", 4, 3, Color.RED, new Square(state));
+    addOperatorButton("Sqrt", 4, 4, Color.RED, new SquareRoot(state));
 
     // Entree: met la valeur courante sur le sommet de la pile
     addOperatorButton("Ent", 4, 5, Color.RED, new OperatorEnt(state));
